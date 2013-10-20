@@ -64,9 +64,14 @@ a:hover, a:active, a:focus {
 	max-width: 950px;
 	min-width: 600px;
 	padding: 10px 0 0 20px;
-	margin: 0 auto;
+	margin: 10px auto;
 	background-color: #FFF;
 	text-align: right;
+	font-size: 90%;
+}
+
+#wpg-login {
+	font-size: 90%;
 }
 
 
