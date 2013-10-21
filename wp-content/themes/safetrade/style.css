@@ -92,12 +92,12 @@ a:hover, a:active, a:focus {
 .content_header .count {
 	display: inline-block;
 	margin: 0 auto;
-	font-wight: bold;
+	font-weight: bold;
 	font-size: 16px;
 }
 .content {
 	padding: 10px 20px;
-	overflow:hidden;
+	overflow: hidden;
 }
 
 
