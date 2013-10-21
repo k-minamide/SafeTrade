@@ -19,18 +19,14 @@
 						$user_id = $user['user_id'];
 						$nickname     = get_cimyFieldValue($user_id, 'NICKNAME');
 						$avater_image = get_cimyFieldValue($user_id, 'AVATER_IMG');
-						$introduction = get_cimyFieldValue($user_id, 'INTRODUCTION');
 					?>
 						<!-- loop start -->
 						<li>
 							<div class="inner descHover">
-								<h2><a href="<?php echo home_url(); ?>/author/<?php echo $user_id; ?>"><span><?php echo cimy_uef_sanitize_content($nickname); ?></span>さん</a></h2>
+								<h2><a href="<?php echo home_url(); ?>/author?uid=<?php echo $user_id; ?>"><span><?php echo cimy_uef_sanitize_content($nickname); ?></span>さん</a></h2>
 								<p class="avater">
 									<img alt="<?php echo cimy_uef_sanitize_content($nickname); ?>さん" src="<?php echo cimy_uef_sanitize_content($avater_image); ?>" height="60" width="60" />
 								</p>
-							</div>
-							<div class="desInner">
-								<p><?php echo cimy_uef_sanitize_content($introduction); ?></p>
 							</div>
 						</li>
 					<?php
