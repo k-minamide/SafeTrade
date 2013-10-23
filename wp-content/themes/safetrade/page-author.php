@@ -26,21 +26,35 @@
           <script type="text/javascript">
           $(document).ready(function(){
             $.jsonp({
-              url: 'http://kampa.me/api/queue/<?php echo $kampa_key; ?>.json',
+              url: 'http://kampa-proxy-api.herokuapp.com/kampa/<?php echo $kampa_key; ?>',
               dataType: 'jsonp',
+              jsonp: 'callback',
               callbackParameter: 'callback',
+              cache: true,
               pageCache: true,
-              success: function(data) {
-                $.each(data, function(i, item) {
-                  $("<div/>").attr("class", "kampa_area").appendTo("div#kampa_list");
-                  $("<div/>").append(data['kmpid']);
-                });
-              },
-              error: function(XHR, textStatus, errorThrown) {
-                alert('Could not find kampa! information.');
+              success: function(json) {
+                for(var i in json.data) {
+                  // エリア
+                  var area = $('<div/>').attr('class', 'kampa_area');
+
+                  // 画像情報
+                  var amazon_image = $('<img/>').attr({'src': json.data[i].pic, 'class': 'img_amazon', 'height': '200'});
+
+                  // Kampa!情報
+                  var conf = $('<div/>').attr('class', 'kampa_conf');
+                  $('<h2/>').append(json.data[i].title).appendTo(conf);
+                  $('<p/>').html('現在の状況').appendTo(conf);
+                  var graph_area = $('<div/>').attr('class', 'graph_area');
+                  $('<div/>').attr('class', 'graph').html(json.data[i].percentage + '%').appendTo(graph_area);
+                  graph_area.appendTo(conf);
+
+                  amazon_image.appendTo(area);
+                  conf.appendTo(area);
+                  area.appendTo('div#kampa_list');
+                }
               }
             });
-          })
+          });
           </script>
           <div id="kampa_list"></div>
           <div class="kampa_area">
