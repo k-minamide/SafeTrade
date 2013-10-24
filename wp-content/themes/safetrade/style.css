@@ -281,6 +281,27 @@ p {
 	border-radius: 5px;
 }
 
+.ui-progressbar {
+	position: relative;
+}
+
+.progress-label {
+	left: 16px;
+	top: 12px;
+	position: absolute;
+	text-align: center;
+	vertical-align: bottom;
+	font-size: 16px;
+	font-weight: bold;
+	text-shadow: 1px 1px 0 #fff;
+}
+
+div[id^=pg-] {
+	width: 400px;
+	height: 40px;
+	margin: 5px;
+	background: #cccccc;
+}
 
 
 

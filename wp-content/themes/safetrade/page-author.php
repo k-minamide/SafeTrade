@@ -30,16 +30,18 @@
           // Kampa!情報
           var conf = $('<div/>').attr('class', 'kampa_conf');
           $('<h2/>').append(json.data[i].title).appendTo(conf);
-          $('<p/>').html('現在の状況').appendTo(conf);
-//          var graph_area = $('<div/>').attr('class', 'graph_area');
-          $('<div/>').attr({'id': 'pg-' + json.data[i].item_bs}).css({'width': '400px', 'height': '10px', 'margin-bottom': '5px'}).appendTo(conf);
-//          graph_area.appendTo(conf);
 
-/*
-          var graph_area = $('<div/>').attr('class', 'graph_area');
-          $('<div/>').attr('class', 'graph').html(json.data[i].percentage + '%').appendTo(graph_area);
-          graph_area.appendTo(conf);
-*/
+          var progressbar = $('<div/>').attr('id', 'pg-' + json.data[i].item_bs);
+          var progressbarValue = progressbar.find('.ui.progressbar-value');
+          var progressLabel = $('<div/>').attr('class', 'progress-label');
+
+          progressLabel.appendTo(progressbar);
+          progressbar.appendTo(conf));
+
+          progressLabel.append(progressbar);
+          progressbar.append(conf);
+
+
           // カンパボタン
           var button = $('<img/>').attr({'class': 'kampa_button', 'src': '<?php echo get_template_directory_uri(); ?>/images/kampabutton.png', 'width': '216', 'height': '59', 'alt': 'カンパする'});
           $('<a/>').attr('href', json.data[i].kmp_page).append(button).appendTo(conf);
@@ -49,9 +51,9 @@
           area.appendTo('div#kampa_list');
 
           // プログレスバーの値を設定する
-          pg_percentage = json.data[i].percentage;
-          if (pg_percentage > 100) { pg_percentage = 100; }
-          $('#pg-' + json.data[i].item_bs).progressbar( { value: pg_percentage });
+          progressbar.progressbar({ value: json.data[i].percentage });
+          progressbarValue.css({'backend': '#c6c6c6'});
+          progressLabel.text( '現在の状況： ' + json.data[i].perventege);
 
         }
       }
