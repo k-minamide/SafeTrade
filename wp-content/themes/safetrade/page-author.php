@@ -57,10 +57,6 @@
           });
           </script>
           <div id="kampa_list"></div>
-          <div class="kampa_area">
-            <div class="kampa_conf">
-            </div>
-          </div>
         </div>
       </div>
       <!-- main end -->
