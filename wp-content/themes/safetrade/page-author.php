@@ -31,9 +31,9 @@
           var conf = $('<div/>').attr('class', 'kampa_conf');
           $('<h2/>').append(json.data[i].title).appendTo(conf);
           $('<p/>').html('現在の状況').appendTo(conf);
-          var graph_area = $('<div/>').attr('class', 'graph_area');
-          $('<div/>').attr({'id': 'pg_' + json.data[i].item_bs, 'class': 'graph'}).appendTo(graph_area);
-          graph_area.appendTo(conf);
+//          var graph_area = $('<div/>').attr('class', 'graph_area');
+          $('<div/>').attr({'id': 'pg_' + json.data[i].item_bs}).appendTo(conf);
+//          graph_area.appendTo(conf);
 
 /*
           var graph_area = $('<div/>').attr('class', 'graph_area');
