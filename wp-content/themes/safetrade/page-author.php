@@ -38,9 +38,6 @@
           progressLabel.appendTo(progressbar);
           progressbar.appendTo(conf));
 
-          progressLabel.append(progressbar);
-          progressbar.append(conf);
-
 
           // カンパボタン
           var button = $('<img/>').attr({'class': 'kampa_button', 'src': '<?php echo get_template_directory_uri(); ?>/images/kampabutton.png', 'width': '216', 'height': '59', 'alt': 'カンパする'});
