@@ -163,6 +163,7 @@ a:hover, a:active, a:focus {
 }
 
 .kampa_area {
+	margin: 5px;
 	padding-left:20px;
 }
 .kampa_area:after {
