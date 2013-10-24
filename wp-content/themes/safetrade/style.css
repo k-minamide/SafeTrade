@@ -203,11 +203,6 @@ a:hover, a:active, a:focus {
 	padding:10px 0 0 10px;
 	font-size:2em;
 }
-div[id^=pg_] {
-	width: 400px;
-	height: 10px;
-	margin-bottom: 5px;
-}
 
 p {
 	font-size:x-large;

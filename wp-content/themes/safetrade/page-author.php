@@ -32,7 +32,7 @@
           $('<h2/>').append(json.data[i].title).appendTo(conf);
           $('<p/>').html('現在の状況').appendTo(conf);
 //          var graph_area = $('<div/>').attr('class', 'graph_area');
-          $('<div/>').attr({'id': 'pg_' + json.data[i].item_bs}).appendTo(conf);
+          $('<div/>').attr({'id': 'pg_' + json.data[i].item_bs}).css({'width': '400px', 'height': '10px', 'margin-bottom': '5px'}).appendTo(conf);
 //          graph_area.appendTo(conf);
 
 /*
