@@ -32,9 +32,14 @@
           $('<h2/>').append(json.data[i].title).appendTo(conf);
           $('<p/>').html('現在の状況').appendTo(conf);
           var graph_area = $('<div/>').attr('class', 'graph_area');
-          $('<div/>').attr('class', 'graph').html(json.data[i].percentage + '%').appendTo(graph_area);
+          $('<div/>').attr({'id': 'pg_' + json.data[i].item_bs, 'class': 'graph'}).appendTo(graph_area);
           graph_area.appendTo(conf);
 
+/*
+          var graph_area = $('<div/>').attr('class', 'graph_area');
+          $('<div/>').attr('class', 'graph').html(json.data[i].percentage + '%').appendTo(graph_area);
+          graph_area.appendTo(conf);
+*/
           // カンパボタン
           var button = $('<img/>').attr({'class': 'kampa_button', 'src': '<?php echo get_template_directory_uri(); ?>/images/kampabutton.png', 'width': '216', 'height': '59', 'alt': 'カンパする'});
           $('<a/>').attr('href', json.data[i].kmp_page).append(button).appendTo(conf);
@@ -42,6 +47,12 @@
           amazon_image.appendTo(area);
           conf.appendTo(area);
           area.appendTo('div#kampa_list');
+
+          // プログレスバーの値を設定する
+          pg_percentage = json.data[i].percentage;
+          if (pg_percentage > 100) { pg_percentage = 100; }
+          $('#pg_' + json.data[i].item_bs).progressbar( { value: pg_percentage });
+
         }
       }
     });
