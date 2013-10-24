@@ -36,7 +36,8 @@
           graph_area.appendTo(conf);
 
           // カンパボタン
-          $('<img/>').attr({'class': 'kampa_button', 'src': '<?php echo get_template_directory_uri(); ?>/images/kampabutton.png', 'width': '216', 'height': '59', 'alt': 'カンパする'}).appendTo(conf);
+          var button = $('<img/>').attr({'class': 'kampa_button', 'src': '<?php echo get_template_directory_uri(); ?>/images/kampabutton.png', 'width': '216', 'height': '59', 'alt': 'カンパする'});
+          $('<a/>').attr('href', json.data[i].kmp_page).append(button).appendTo(conf);
 
           amazon_image.appendTo(area);
           conf.appendTo(area);
