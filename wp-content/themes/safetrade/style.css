@@ -165,6 +165,11 @@ a:hover, a:active, a:focus {
 .kampa_area {
 	padding-left:20px;
 }
+.kampa_area:after {
+	content: "";
+	display: block;
+	clear: both;
+}
 .img_amazon {
 	border:thin solid #FF9900;
 	float:left;
