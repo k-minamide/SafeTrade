@@ -1,5 +1,15 @@
 <?php get_header() ?>
 
+<?php
+  // 投稿者IDの取得
+  $user_id = htmlspecialchars($_GET['uid'], ENT_QUOTES);
+  $title = get_cimyFieldValue($user_id, 'TITLE');
+  $nickname = get_cimyFieldValue($user_id, 'NICKNAME');
+  $avater_image = get_cimyFieldValue($user_id, 'AVATER_IMG');
+  $appeal = get_cimyFieldValue($user_id, 'APPEAL');
+  $kampa_key = get_cimyFieldValue($user_id, 'KAMPA_CONSUMER_KEY');
+?>
+
   <script type="text/javascript">
   $(document).ready(function(){
     $.jsonp({
@@ -36,16 +46,6 @@
 
   <!-- main start -->
   <div class="container">
-    <?php
-      // 投稿者IDの取得
-      $user_id = htmlspecialchars($_GET['uid'], ENT_QUOTES);
-      $title = get_cimyFieldValue($user_id, 'TITLE');
-      $nickname = get_cimyFieldValue($user_id, 'NICKNAME');
-      $avater_image = get_cimyFieldValue($user_id, 'AVATER_IMG');
-      $appeal = get_cimyFieldValue($user_id, 'APPEAL');
-      $kampa_key = get_cimyFieldValue($user_id, 'KAMPA_CONSUMER_KEY');
-    ?>
-
     <h2><?php echo $title ?></h2>
 
     <div class="user_info">
