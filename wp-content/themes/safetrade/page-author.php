@@ -35,6 +35,9 @@
           $('<div/>').attr('class', 'graph').html(json.data[i].percentage + '%').appendTo(graph_area);
           graph_area.appendTo(conf);
 
+          // カンパボタン
+          $('<img/>').attr({'class': 'kampa_button', 'src': '<?php echo get_template_directory_uri(); ?>/images/kampabutton.png', 'width': '216', 'height': '59', 'alt': 'カンパする'}).appendTo(conf);
+
           amazon_image.appendTo(area);
           conf.appendTo(area);
           area.appendTo('div#kampa_list');
