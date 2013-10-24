@@ -32,7 +32,7 @@
           $('<h2/>').append(json.data[i].title).appendTo(conf);
           $('<p/>').html('現在の状況').appendTo(conf);
 //          var graph_area = $('<div/>').attr('class', 'graph_area');
-          $('<div/>').attr({'id': 'pg_' + json.data[i].item_bs}).css({'width': '400px', 'height': '10px', 'margin-bottom': '5px'}).appendTo(conf);
+          $('<div/>').attr({'id': 'pg-' + json.data[i].item_bs}).css({'width': '400px', 'height': '10px', 'margin-bottom': '5px'}).appendTo(conf);
 //          graph_area.appendTo(conf);
 
 /*
@@ -51,7 +51,7 @@
           // プログレスバーの値を設定する
           pg_percentage = json.data[i].percentage;
           if (pg_percentage > 100) { pg_percentage = 100; }
-          $('#pg_' + json.data[i].item_bs).progressbar( { value: pg_percentage });
+          $('#pg-' + json.data[i].item_bs).progressbar( { value: pg_percentage });
 
         }
       }
