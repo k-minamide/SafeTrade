@@ -31,13 +31,19 @@
           var conf = $('<div/>').attr('class', 'kampa_conf');
           $('<h2/>').append(json.data[i].title).appendTo(conf);
 
+          // 達成度（プログレスバー）
           var progressbar = $('<div/>').attr('id', 'pg-' + json.data[i].item_bs);
-          var progressbarValue = progressbar.find('.ui.progressbar-value');
+          var progressbarValue = progressbar.find('.ui-progressbar-value');
           var progressLabel = $('<div/>').attr('class', 'progress-label');
+
+          // プログレスバーの値を設定する
+          // progressbar.progressbar({ value: false });
+          progressbar.progressbar({ 'value': json.data[i].percentage });
+          progressbarValue.css({'background': 'red'});
+          progressLabel.text( '現在の状況： ' + json.data[i].percentage + ' %');
 
           progressLabel.appendTo(progressbar);
           progressbar.appendTo(conf);
-
 
           // カンパボタン
           var button = $('<img/>').attr({'class': 'kampa_button', 'src': '<?php echo get_template_directory_uri(); ?>/images/kampabutton.png', 'width': '216', 'height': '59', 'alt': 'カンパする'});
@@ -47,11 +53,7 @@
           conf.appendTo(area);
           area.appendTo('div#kampa_list');
 
-          // プログレスバーの値を設定する
-          progressbar.progressbar({ value: false });
-          progressbar.progressbar({ value: json.data[i].percentage });
-          progressbarValue.css({'backend': '#c6c6c6'});
-          progressLabel.text( '現在の状況： ' + json.data[i].percentage + ' %');
+
 
         }
       }
