@@ -36,7 +36,7 @@
           var progressLabel = $('<div/>').attr('class', 'progress-label');
 
           progressLabel.appendTo(progressbar);
-          progressbar.appendTo(conf));
+          progressbar.appendTo(conf);
 
 
           // カンパボタン
@@ -48,9 +48,10 @@
           area.appendTo('div#kampa_list');
 
           // プログレスバーの値を設定する
+          progressbar.progressbar({ value: false });
           progressbar.progressbar({ value: json.data[i].percentage });
           progressbarValue.css({'backend': '#c6c6c6'});
-          progressLabel.text( '現在の状況： ' + json.data[i].perventege);
+          progressLabel.text( '現在の状況： ' + json.data[i].percentage + ' %');
 
         }
       }
