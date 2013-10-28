@@ -66,8 +66,8 @@
           var button = $('<img/>').attr({
                 'class': 'kampa_button',
                 'src': '<?php echo get_template_directory_uri(); ?>/images/kampabutton.png',
-                'width': '216',
-                'height': '59',
+                'width': '146',
+                'height': '40',
                 'alt': 'カンパする'});
           $('<a/>')
            .attr({'href': json.data[i].kmp_page, '_target': 'blank'})

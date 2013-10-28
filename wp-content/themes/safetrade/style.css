@@ -345,6 +345,7 @@ div.kampalink-info {
 div.kampalink-name {
 	margin: 0 0 10px 10px;
 	line-height: 120%;
+	border-bottom: medium solid #F60;
 }
 
 div.kampalink-detail {
