@@ -72,7 +72,7 @@
           $('<a/>')
            .attr({'href': json.data[i].kmp_page, '_target': 'blank'})
            .append(button)
-           .appendTo(link_butto);
+           .appendTo(link_button);
 
           // 合体
           link_image.appendTo(link_box);
