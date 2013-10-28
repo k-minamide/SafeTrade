@@ -303,5 +303,60 @@ div[id^=pg-] {
 	background: #cccccc;
 }
 
+/* Kampa! Link */
+div.kampalink-box {
+	width: 95%;
+	padding: 15px;
+	position: relative;
+	margin-bottom: 10px;
+	font-size: 14px;
+}
 
+div.kampalink-box:after {
+	content: ".";
+	display: block;
+	height: 0;
+	font-size:0;
+	clear: both;
+	visibility:hidden;
+}
+
+div.kampalink-image {
+	float: left;
+	width: 150px;
+	height: 150px;
+}
+
+div.kampalink-image img {
+	display: block;
+	margin: auto;
+	height: 120px;
+	max-width: 120px;
+	padding: 2%;
+}
+
+div.kampalink-info {
+	float: left;
+	width: 50%;
+	margin-left: 10px;
+	line-height: 120%;
+}
+
+div.kampalink-name {
+	margin: 0 0 10px 10px;
+	line-height: 120%;
+}
+
+div.kampalink-detail {
+}
+
+div.kampalink-link {
+	margin-top: 5px;
+}
+
+div.kampalink-footer   {
+	clear: left;
+	position: relative;
+	text-align: right;
+}
 
