@@ -21,40 +21,67 @@
       pageCache: true,
       success: function(json) {
         for(var i in json.data) {
-          // エリア
-          var area = $('<div/>').attr('class', 'kampa_area');
 
-          // 画像情報
-          var amazon_image = $('<img/>').attr({'src': json.data[i].pic, 'class': 'img_amazon', 'height': '200'});
+          // Kampa! エリア
+          var link_box = $('<div/>').attr('class', 'kampalink-box');
+          // Kampa! image
+          var link_image = $('<div/>').attr('class', 'kampalink-image');
+          // box image
+          var amazon_image = $('<img/>').attr({'src': json.data[i].pic, 'alt': json.data[i].title});
+          // link
+          $('<a/>')
+            .attr({'href': json.data[i].kmp_page, 'title': json.data[i].title, '_target': 'blank'})
+            .append(amazon_image)
+            .appendTo(link_image);
 
-          // Kampa!情報
-          var conf = $('<div/>').attr('class', 'kampa_conf');
-          $('<h2/>').append(json.data[i].title).appendTo(conf);
+          // info area
+          var link_info = $('<div/>').attr('class', 'kampalink-info');
+          // name area
+          var link_name = $('<div/>').attr('class', 'kampalink-name');
+          // name
+          $('<a/>')
+            .attr({'href': json.data[i].kmp_page, 'title': json.data[i].title, '_target': 'blank'})
+            .append(json.data[i].title)
+            .appendTo(link_name);
 
-          // 達成度（プログレスバー）
+          // detail
+          var link_detail = $('<div/>').attr('class', 'kampalink-detail');
+
+          // progressbar
           var progressbar = $('<div/>').attr('id', 'pg-' + json.data[i].item_bs);
-          var progressbarValue = progressbar.find('.ui-progressbar-value');
+          var progressbarValue = progressbar.find('.ui.progressbar-value');
           var progressLabel = $('<div/>').attr('class', 'progress-label');
 
           // プログレスバーの値を設定する
-          // progressbar.progressbar({ value: false });
-          progressbar.progressbar({ 'value': json.data[i].percentage });
-          progressbarValue.css({'background': 'red'});
-          progressLabel.text( '現在の状況： ' + json.data[i].percentage + ' %');
+          progressbar.progressbar({ value: false });
+          progressbar.progressbar({ value: json.data[i].percentage });
+          progressbarValue.css({'backend': '#c6c6c6'});
+          progressLabel.text( '現在の状況： ' + json.data[i].percentage + ' %' );
 
           progressLabel.appendTo(progressbar);
-          progressbar.appendTo(conf);
+          progressbar.appendTo(link_detail);
 
           // カンパボタン
-          var button = $('<img/>').attr({'class': 'kampa_button', 'src': '<?php echo get_template_directory_uri(); ?>/images/kampabutton.png', 'width': '216', 'height': '59', 'alt': 'カンパする'});
-          $('<a/>').attr('href', json.data[i].kmp_page).append(button).appendTo(conf);
+          var link_button = $('<div/>').attr('class', 'kampalink-button');
+          var button = $('<img/>').attr({
+                'class': 'kampa_button',
+                'src': '<?php echo get_template_directory_uri(); ?>/images/kampabutton.png',
+                'width': '216',
+                'height': '59',
+                'alt': 'カンパする'});
+          $('<a/>')
+           .attr({'href': json.data[i].kmp_page, '_target': 'blank'})
+           .append(button)
+           .appendTo(link_butto);
 
-          amazon_image.appendTo(area);
-          conf.appendTo(area);
-          area.appendTo('div#kampa_list');
+          // 合体
+          link_image.appendTo(link_box);
+          link_name.appendTo(link_info);
+          link_button.appendTo(link_detail);
+          link_detail.appendTo(link_info);
+          link_info.appendTo(link_box);
 
-
-
+          link_box.appendTo(kampa_list);
         }
       }
     });
